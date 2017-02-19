@@ -1,3 +1,0 @@
-<?php
-	echo "finish page";
-?>
