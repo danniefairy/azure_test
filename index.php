@@ -58,12 +58,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 
-<?php
-	echo 123;
-	if(true)
-		echo "true";
-?>
-
 
 		</div>
 
