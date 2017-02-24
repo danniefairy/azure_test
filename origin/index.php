@@ -81,56 +81,57 @@
 
   <!-- +++++ Projects Section +++++ -->
 
-  <!--Insert to DB-->
+  <!--AJAX Http-->
    <script type="text/javascript">
-      var question=[];
       function load(value){
-        q_num=value.split("-")[0];
-        question[parseInt(q_num)]=value.split("-")[1];
-        //alert(value.split("-")[1])
+        var xhttp;
+        if (window.XMLHttpRequest) {
+          // code for modern browsers
+          xhttp = new XMLHttpRequest();
+          } else {
+          // code for IE6, IE5
+          xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            //alert(this.responseText);
+          }
+        };
+        xhttp.open("GET", "send.php?value="+value, true);
+        xhttp.send();
           }
 
       function submit(){
         var other=document.getElementById("other").value;
         var comment=document.getElementById("comment").value;
-        var name=document.getElementById("name").value;
-        var phone=document.getElementById("phone").value;
-        if(other!="")
-            question[5]="6."+other;
-        //alert(question);
-        window.location.href='insert_db.php?name='+name+'&phone='+phone+'&one='+question[1]+'&two='+question[2]+'&three='+question[3]+'&four='+question[4]+'&five='+question[5]+'&six='+question[6]+'&comment='+comment;
+        var finish=true;
+        //alert(v);
+        window.location.href='finish.php?other='+other+'&comment='+comment+'&finish='+finish;
       }
     </script>
 
 
   <div class="container pt">
     <div class="row mt centered">
-      <div class="col-md-3 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3">
         <h4 style="font-family:Microsoft JhengHei; text-align:left;"><nobr style="color:red;">*</nobr> 必填</h4>
-        <input id="name" class="form-control" id="inputPassword2" placeholder="姓名" style="font-family:Microsoft JhengHei;">
-        <br>
-        <input type="number" pattern="\d*" id="phone" class="form-control" id="inputPassword2" placeholder="手機後五碼" style="font-family:Microsoft JhengHei;">
-        <br>
       </div>
-
-
-
       <div class="col-md-6 col-md-offset-3">
         <h3 style="font-family:Microsoft JhengHei; text-align:left;">1. 您對於活動的整體滿意度 ? <nobr style="color:red;">*</nobr></h3>
         <div style="background-color:#AFEEEE; border-radius: 5px; font-family:Microsoft JhengHei;"><p id="rwd-lavel1-1"></p></div>
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel1-2">很不滿意&nbsp;</nobr>
         <div class="acidjs-rating-stars">
             <form>
-                <input type="radio" name="group-1" id="group-1-0" value="1-10"  onclick="load(value)" /><label for="group-1-0"></label>
-                <input type="radio" name="group-1" id="group-1-1" value="1-9"  onclick="load(value)" /><label for="group-1-1"></label>
-                <input type="radio" name="group-1" id="group-1-2" value="1-8"  onclick="load(value)" /><label for="group-1-2"></label>
-                <input type="radio" name="group-1" id="group-1-3" value="1-7"  onclick="load(value)" /><label for="group-1-3"></label>
-                <input type="radio" name="group-1" id="group-1-4" value="1-6"  onclick="load(value)" /><label for="group-1-4"></label>
-                <input type="radio" name="group-1" id="group-1-5" value="1-5"  onclick="load(value)" /><label for="group-1-5"></label>
-                <input type="radio" name="group-1" id="group-1-6" value="1-4"  onclick="load(value)" /><label for="group-1-6"></label>
-                <input type="radio" name="group-1" id="group-1-7" value="1-3"  onclick="load(value)" /><label for="group-1-7"></label>
-                <input type="radio" name="group-1" id="group-1-8" value="1-2"  onclick="load(value)" /><label for="group-1-8"></label>
-                <input type="radio" name="group-1" id="group-1-9" value="1-1"  onclick="load(value)" /><label for="group-1-9"></label>
+                <input type="radio" name="group-1" id="group-1-0" value="one-10"  onclick="load(value)" /><label for="group-1-0"></label>
+                <input type="radio" name="group-1" id="group-1-1" value="one-9"  onclick="load(value)" /><label for="group-1-1"></label>
+                <input type="radio" name="group-1" id="group-1-2" value="one-8"  onclick="load(value)" /><label for="group-1-2"></label>
+                <input type="radio" name="group-1" id="group-1-3" value="one-7"  onclick="load(value)" /><label for="group-1-3"></label>
+                <input type="radio" name="group-1" id="group-1-4" value="one-6"  onclick="load(value)" /><label for="group-1-4"></label>
+                <input type="radio" name="group-1" id="group-1-5" value="one-5"  onclick="load(value)" /><label for="group-1-5"></label>
+                <input type="radio" name="group-1" id="group-1-6" value="one-4"  onclick="load(value)" /><label for="group-1-6"></label>
+                <input type="radio" name="group-1" id="group-1-7" value="one-3"  onclick="load(value)" /><label for="group-1-7"></label>
+                <input type="radio" name="group-1" id="group-1-8" value="one-2"  onclick="load(value)" /><label for="group-1-8"></label>
+                <input type="radio" name="group-1" id="group-1-9" value="one-1"  onclick="load(value)" /><label for="group-1-9"></label>
             </form>
         </div>
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel1-3">&nbsp;非常完美</nobr>
@@ -142,16 +143,16 @@
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel2-2">差強人意&nbsp;</nobr>
         <div class="acidjs-rating-stars">
             <form>
-                <input type="radio" name="group-2" id="group-2-0" value="2-10"  onclick="load(value)" /><label for="group-2-0"></label>
-                <input type="radio" name="group-2" id="group-2-1" value="2-9"  onclick="load(value)" /><label for="group-2-1"></label>
-                <input type="radio" name="group-2" id="group-2-2" value="2-8"  onclick="load(value)" /><label for="group-2-2"></label>
-                <input type="radio" name="group-2" id="group-2-3" value="2-7"  onclick="load(value)" /><label for="group-2-3"></label>
-                <input type="radio" name="group-2" id="group-2-4" value="2-6"  onclick="load(value)" /><label for="group-2-4"></label>
-                <input type="radio" name="group-2" id="group-2-5" value="2-5"  onclick="load(value)" /><label for="group-2-5"></label>
-                <input type="radio" name="group-2" id="group-2-6" value="2-4"  onclick="load(value)" /><label for="group-2-6"></label>
-                <input type="radio" name="group-2" id="group-2-7" value="2-3"  onclick="load(value)" /><label for="group-2-7"></label>
-                <input type="radio" name="group-2" id="group-2-8" value="2-2"  onclick="load(value)" /><label for="group-2-8"></label>
-                <input type="radio" name="group-2" id="group-2-9" value="2-1"  onclick="load(value)" /><label for="group-2-9"></label>
+                <input type="radio" name="group-2" id="group-2-0" value="two-10"  onclick="load(value)" /><label for="group-2-0"></label>
+                <input type="radio" name="group-2" id="group-2-1" value="two-9"  onclick="load(value)" /><label for="group-2-1"></label>
+                <input type="radio" name="group-2" id="group-2-2" value="two-8"  onclick="load(value)" /><label for="group-2-2"></label>
+                <input type="radio" name="group-2" id="group-2-3" value="two-7"  onclick="load(value)" /><label for="group-2-3"></label>
+                <input type="radio" name="group-2" id="group-2-4" value="two-6"  onclick="load(value)" /><label for="group-2-4"></label>
+                <input type="radio" name="group-2" id="group-2-5" value="two-5"  onclick="load(value)" /><label for="group-2-5"></label>
+                <input type="radio" name="group-2" id="group-2-6" value="two-4"  onclick="load(value)" /><label for="group-2-6"></label>
+                <input type="radio" name="group-2" id="group-2-7" value="two-3"  onclick="load(value)" /><label for="group-2-7"></label>
+                <input type="radio" name="group-2" id="group-2-8" value="two-2"  onclick="load(value)" /><label for="group-2-8"></label>
+                <input type="radio" name="group-2" id="group-2-9" value="two-1"  onclick="load(value)" /><label for="group-2-9"></label>
             </form>
         </div>
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel2-3">&nbsp;樂在其中</nobr>
@@ -163,16 +164,16 @@
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel3-2">不太了解&nbsp;</nobr>
         <div class="acidjs-rating-stars">
             <form>
-                <input type="radio" name="group-3" id="group-3-0" value="3-10"  onclick="load(value)" /><label for="group-3-0"></label>
-                <input type="radio" name="group-3" id="group-3-1" value="3-9"  onclick="load(value)" /><label for="group-3-1"></label>
-                <input type="radio" name="group-3" id="group-3-2" value="3-8"  onclick="load(value)" /><label for="group-3-2"></label>
-                <input type="radio" name="group-3" id="group-3-3" value="3-7"  onclick="load(value)" /><label for="group-3-3"></label>
-                <input type="radio" name="group-3" id="group-3-4" value="3-6"  onclick="load(value)" /><label for="group-3-4"></label>
-                <input type="radio" name="group-3" id="group-3-5" value="3-5"  onclick="load(value)" /><label for="group-3-5"></label>
-                <input type="radio" name="group-3" id="group-3-6" value="3-4"  onclick="load(value)" /><label for="group-3-6"></label>
-                <input type="radio" name="group-3" id="group-3-7" value="3-3"  onclick="load(value)" /><label for="group-3-7"></label>
-                <input type="radio" name="group-3" id="group-3-8" value="3-2"  onclick="load(value)" /><label for="group-3-8"></label>
-                <input type="radio" name="group-3" id="group-3-9" value="3-1"  onclick="load(value)" /><label for="group-3-9"></label>
+                <input type="radio" name="group-3" id="group-3-0" value="three-10"  onclick="load(value)" /><label for="group-3-0"></label>
+                <input type="radio" name="group-3" id="group-3-1" value="three-9"  onclick="load(value)" /><label for="group-3-1"></label>
+                <input type="radio" name="group-3" id="group-3-2" value="three-8"  onclick="load(value)" /><label for="group-3-2"></label>
+                <input type="radio" name="group-3" id="group-3-3" value="three-7"  onclick="load(value)" /><label for="group-3-3"></label>
+                <input type="radio" name="group-3" id="group-3-4" value="three-6"  onclick="load(value)" /><label for="group-3-4"></label>
+                <input type="radio" name="group-3" id="group-3-5" value="three-5"  onclick="load(value)" /><label for="group-3-5"></label>
+                <input type="radio" name="group-3" id="group-3-6" value="three-4"  onclick="load(value)" /><label for="group-3-6"></label>
+                <input type="radio" name="group-3" id="group-3-7" value="three-3"  onclick="load(value)" /><label for="group-3-7"></label>
+                <input type="radio" name="group-3" id="group-3-8" value="three-2"  onclick="load(value)" /><label for="group-3-8"></label>
+                <input type="radio" name="group-3" id="group-3-9" value="three-1"  onclick="load(value)" /><label for="group-3-9"></label>
             </form>
         </div>
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel3-3">&nbsp;充分了解</nobr>
@@ -184,16 +185,16 @@
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel4-2">毫無收穫&nbsp;</nobr>
         <div class="acidjs-rating-stars">
             <form>
-                <input type="radio" name="group-4" id="group-4-0" value="4-10"  onclick="load(value)" /><label for="group-4-0"></label>
-                <input type="radio" name="group-4" id="group-4-1" value="4-9"  onclick="load(value)" /><label for="group-4-1"></label>
-                <input type="radio" name="group-4" id="group-4-2" value="4-8"  onclick="load(value)" /><label for="group-4-2"></label>
-                <input type="radio" name="group-4" id="group-4-3" value="4-7"  onclick="load(value)" /><label for="group-4-3"></label>
-                <input type="radio" name="group-4" id="group-4-4" value="4-6"  onclick="load(value)" /><label for="group-4-4"></label>
-                <input type="radio" name="group-4" id="group-4-5" value="4-5"  onclick="load(value)" /><label for="group-4-5"></label>
-                <input type="radio" name="group-4" id="group-4-6" value="4-4"  onclick="load(value)" /><label for="group-4-6"></label>
-                <input type="radio" name="group-4" id="group-4-7" value="4-3"  onclick="load(value)" /><label for="group-4-7"></label>
-                <input type="radio" name="group-4" id="group-4-8" value="4-2"  onclick="load(value)" /><label for="group-4-8"></label>
-                <input type="radio" name="group-4" id="group-4-9" value="4-1"  onclick="load(value)" /><label for="group-4-9"></label>
+                <input type="radio" name="group-4" id="group-4-0" value="four-10"  onclick="load(value)" /><label for="group-4-0"></label>
+                <input type="radio" name="group-4" id="group-4-1" value="four-9"  onclick="load(value)" /><label for="group-4-1"></label>
+                <input type="radio" name="group-4" id="group-4-2" value="four-8"  onclick="load(value)" /><label for="group-4-2"></label>
+                <input type="radio" name="group-4" id="group-4-3" value="four-7"  onclick="load(value)" /><label for="group-4-3"></label>
+                <input type="radio" name="group-4" id="group-4-4" value="four-6"  onclick="load(value)" /><label for="group-4-4"></label>
+                <input type="radio" name="group-4" id="group-4-5" value="four-5"  onclick="load(value)" /><label for="group-4-5"></label>
+                <input type="radio" name="group-4" id="group-4-6" value="four-4"  onclick="load(value)" /><label for="group-4-6"></label>
+                <input type="radio" name="group-4" id="group-4-7" value="four-3"  onclick="load(value)" /><label for="group-4-7"></label>
+                <input type="radio" name="group-4" id="group-4-8" value="four-2"  onclick="load(value)" /><label for="group-4-8"></label>
+                <input type="radio" name="group-4" id="group-4-9" value="four-1"  onclick="load(value)" /><label for="group-4-9"></label>
             </form>
         </div>
         <nobr style="font-family:Microsoft JhengHei;" id="rwd-lavel4-3">&nbsp;滿載而歸</nobr>
@@ -203,11 +204,11 @@
         <h3 style="font-family:Microsoft JhengHei; text-align:left;">5. 您是如何知道本次活動 ? <nobr style="color:red;">*</nobr></h3>
         </br>
         <div class="col-md-6 col-md-offset-3 text-left">
-            <input type="radio" name="group-5" id="group-5-0" value="5-1.粉絲專頁(FB社群平台)"  onclick="load(value)"/><label for="group-5-0" style="font-family:Microsoft JhengHei;">&nbsp; 粉絲專頁(FB社群平台)</label></br>
-              <input type="radio" name="group-5" id="group-5-1" value="5-2.微軟實習官方網站"  onclick="load(value)"/><label for="group-5-1" style="font-family:Microsoft JhengHei;">&nbsp; 微軟實習官方網站</label></br>
-              <input type="radio" name="group-5" id="group-5-2" value="5-3.海報 / 傳單"  onclick="load(value)"/><label for="group-5-2" style="font-family:Microsoft JhengHei;">&nbsp; 海報 / 傳單</label></br>
-              <input type="radio" name="group-5" id="group-5-3" value="5-4.宣傳攤位"  onclick="load(value)"/><label for="group-5-3" style="font-family:Microsoft JhengHei;">&nbsp; 宣傳攤位</label></br>
-              <input type="radio" name="group-5" id="group-5-4" value="5-5.親友分享"  onclick="load(value)"/><label for="group-5-4" style="font-family:Microsoft JhengHei;">&nbsp; 親友分享</label></br>
+            <input type="radio" name="group-5" id="group-5-0" value="five-1"  onclick="load(value)"/><label for="group-5-0" style="font-family:Microsoft JhengHei;">&nbsp; 粉絲專頁(FB社群平台)</label></br>
+              <input type="radio" name="group-5" id="group-5-1" value="five-2"  onclick="load(value)"/><label for="group-5-1" style="font-family:Microsoft JhengHei;">&nbsp; 微軟實習官方網站</label></br>
+              <input type="radio" name="group-5" id="group-5-2" value="five-3"  onclick="load(value)"/><label for="group-5-2" style="font-family:Microsoft JhengHei;">&nbsp; 海報 / 傳單</label></br>
+              <input type="radio" name="group-5" id="group-5-3" value="five-4"  onclick="load(value)"/><label for="group-5-3" style="font-family:Microsoft JhengHei;">&nbsp; 宣傳攤位</label></br>
+              <input type="radio" name="group-5" id="group-5-4" value="five-5"  onclick="load(value)"/><label for="group-5-4" style="font-family:Microsoft JhengHei;">&nbsp; 親友分享</label></br>
               </label><input id="other" class="form-control" id="inputPassword2" placeholder="其他" style="font-family:Microsoft JhengHei;">
           </form>
         </div>
@@ -218,9 +219,9 @@
         </br>
         <div class="col-md-6 col-md-offset-3 text-left">
             <form>
-                <input type="radio" name="group-6" id="group-6-0" value="6-1.會"  onclick="load(value)"/><label for="group-6-0" style="font-family:Microsoft JhengHei;">&nbsp; 會</label></br>
-                <input type="radio" name="group-6" id="group-6-1" value="6-2.不會"  onclick="load(value)"/><label for="group-6-1" style="font-family:Microsoft JhengHei;">&nbsp; 不會</label></br>
-                <input type="radio" name="group-6" id="group-6-2" value="6-3.不一定"  onclick="load(value)"/><label for="group-6-2" style="font-family:Microsoft JhengHei;">&nbsp; 不一定</label></br>
+                <input type="radio" name="group-6" id="group-6-0" value="six-1"  onclick="load(value)"/><label for="group-6-0" style="font-family:Microsoft JhengHei;">&nbsp; 會</label></br>
+                <input type="radio" name="group-6" id="group-6-1" value="six-2"  onclick="load(value)"/><label for="group-6-1" style="font-family:Microsoft JhengHei;">&nbsp; 不會</label></br>
+                <input type="radio" name="group-6" id="group-6-2" value="six-3"  onclick="load(value)"/><label for="group-6-2" style="font-family:Microsoft JhengHei;">&nbsp; 不一定</label></br>
             </form>
         </div>
       </div>
