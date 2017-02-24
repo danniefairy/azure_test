@@ -15,7 +15,7 @@
 	if(!mysqli_select_db($connect,'connect_test'))//Mifriend
 		die('can not use db');
 	else
-		echo 'mifriend db can be used';
+		echo 'db can be used';
 
 	//echo "<br>";
 
