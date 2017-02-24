@@ -11,7 +11,7 @@
 	$name="\"$insert[0]\"";
 	$phone=$insert[1];
 	foreach ($insert as $key => $value) {
-		if(empty($value)){
+		if($value=="undefined"){
 			$insert[$key]=null;
 			echo $key."<br>";
 		}
