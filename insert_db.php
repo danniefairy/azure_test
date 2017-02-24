@@ -2,7 +2,7 @@
 	if(isset($_GET['six']))
 		$insert=array($_GET['name'],$_GET['phone'],$_GET['one'],$_GET['two'],$_GET['three'],$_GET['four'],$_GET['five'],$_GET['six'],$_GET['comment'] );
 		foreach ($insert as $key => $value) {
-			echo $value."<br>";
+			echo $ket." ".$value."<br>";
 		}
 
     include "connect_db.php";
