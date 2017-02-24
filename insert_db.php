@@ -12,7 +12,7 @@
 	$phone=$insert[1];
 	foreach ($insert as $key => $value) {
 		if($value=="undefined"){
-			$insert[$key]=null;
+			$insert[$key]="null";
 			echo $key."<br>";
 		}
 	}
