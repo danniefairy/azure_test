@@ -14,6 +14,7 @@
 	foreach ($insert as $key => $value) {
 		if(empty($value)){
 			$insert[$key]=0;
+			echo $key."<br>";
 		}
 	}
 
