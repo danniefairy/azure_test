@@ -10,12 +10,7 @@
 	$id=$_SESSION['id'];
 	$name="\"$insert[0]\"";
 	$phone=$insert[1];
-	foreach ($insert as $key => $value) {
-		if($value=="undefined"){
-			$insert[$key]="null";
-			echo $key."<br>";
-		}
-	}
+
 	$update="UPDATE `questionnaire` SET `name`=$name,`phone`=$phone,`one`=$insert[2],`two`=$insert[3],`three`=$insert[4],`four`=\"$insert[5]\",`five`=\"$insert[6]\",`six`=\"$insert[7]\",`seven`=\"$insert[8]\" WHERE `id`=$id";
 	mysqli_query($connect,$update);
 	/*echo "<script>
