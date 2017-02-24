@@ -11,7 +11,13 @@
 	$name="\"$insert[0]\"";
 	$phone=$insert[1];
 
-	$update="UPDATE `questionnaire` SET `name`=$name,`phone`=$phone,`one`=$insert[2],`two`=$insert[3],`three`=$insert[4],`four`=\"$insert[5]\",`five`=\"$insert[6]\",`six`=\"$insert[7]\",`seven`=\"$insert[8]\" WHERE `id`=$id";
+	foreach ($insert as $key => $value) {
+		if(empty($value)){
+			$insert[$key]=0;
+		}
+	}
+
+	$update="UPDATE `questionnaire` SET `name`=$name,`phone`=$phone,`one`=\"$insert[2]\",`two`=\"$insert[3]\",`three`=\"$insert[4]\",`four`=\"$insert[5]\",`five`=\"$insert[6]\",`six`=\"$insert[7]\",`seven`=\"$insert[8]\" WHERE `id`=$id";
 	mysqli_query($connect,$update);
 	/*echo "<script>
 				var url=\"finish_page.php?name=$insert[0]&phone=$insert[1]\";
