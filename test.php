@@ -7,15 +7,15 @@
 	if(mysqli_connect_errno($connect))
 		die("fail to connect the db");
 	else
-		//echo 'connect successfully';
+		echo 'connect successfully';
 
-	//echo "<br>";
+	echo "<br>";
 
 	//選擇資料庫
 	if(!mysqli_select_db($connect,'connect_test'))//Mifriend
 		die('can not use db');
 	else
-		//echo 'mifriend db can be used';
+		echo 'mifriend db can be used';
 
 	//echo "<br>";
 
