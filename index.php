@@ -108,6 +108,10 @@
             alert("請填評論");
         if(phone=="")
             alert("請填電話後五碼");
+        for(i=1;i<7;i++){
+          if(question[i]=="undefined")
+            alert("請確定每一題都有填寫喔!");
+        }
         //alert(question);
         //window.location.href='insert_db.php?name='+name+'&phone='+phone+'&one='+question[1]+'&two='+question[2]+'&three='+question[3]+'&four='+question[4]+'&five='+question[5]+'&six='+question[6]+'&comment='+comment;
       }
