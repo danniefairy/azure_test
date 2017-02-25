@@ -102,7 +102,8 @@
         for(i=1;i<6;i++){
           x=x+question[i];
         }
-        alert(other+"/"+comment+"/"+name);
+        if(name=="")
+            alert("請填姓名");
         //alert(question);
         //window.location.href='insert_db.php?name='+name+'&phone='+phone+'&one='+question[1]+'&two='+question[2]+'&three='+question[3]+'&four='+question[4]+'&five='+question[5]+'&six='+question[6]+'&comment='+comment;
       }
