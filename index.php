@@ -98,22 +98,29 @@
         if(other!="")
             question[5]="6."+other;
         
-        var x="";
-        for(i=1;i<6;i++){
-          x=x+question[i];
-        }
-        if(name=="")
-            alert("請填姓名");
-        if(phone=="")
-            alert("請填電話後五碼");
-        if(comment=="")
+        var check=0;
+        if(name==""){
+          alert("請填姓名");
+          check=1;
+        }            
+        if(phone==""){
+          alert("請填電話後五碼");
+          check=1;
+        }            
+        if(comment==""){
             alert("請填評論");
-        
+          check=1;
+        }
         for(i=1;i<7;i++){
           if(!question[i]){
             alert("請確定每一題都有填寫喔!");
+            check=1;
             break;
           }
+        }
+
+        if(check==0){
+          alert("ok");
         }
         //alert(question);
         //window.location.href='insert_db.php?name='+name+'&phone='+phone+'&one='+question[1]+'&two='+question[2]+'&three='+question[3]+'&four='+question[4]+'&five='+question[5]+'&six='+question[6]+'&comment='+comment;
