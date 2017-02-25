@@ -113,6 +113,7 @@
         }
         for(i=1;i<7;i++){
           if(!question[i]){
+            if(i==4&&other=="")
             alert("請確定每一題都有填寫喔!");
             check=1;
             break;
