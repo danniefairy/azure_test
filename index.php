@@ -104,6 +104,10 @@
         }
         if(name=="")
             alert("請填姓名");
+        if(comment=="")
+            alert("請填評論");
+        if(phone=="")
+            alert("請填電話後五碼");
         //alert(question);
         //window.location.href='insert_db.php?name='+name+'&phone='+phone+'&one='+question[1]+'&two='+question[2]+'&three='+question[3]+'&four='+question[4]+'&five='+question[5]+'&six='+question[6]+'&comment='+comment;
       }
