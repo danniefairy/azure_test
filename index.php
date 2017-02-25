@@ -112,15 +112,7 @@
           check=1;
         }
         for(i=1;i<7;i++){
-          if(!question[4]){
-              if(other="")
-              {
-                alert("請確定每一題都有填寫喔!");
-                check=1;
-                break;
-              }
-          }
-          else if((i!=4)&&(!question[i])){
+          else if(!question[i]){
             alert("請確定每一題都有填寫喔!");
             check=1;
             break;
