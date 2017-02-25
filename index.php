@@ -108,11 +108,11 @@
           check=1;
         }            
         if(comment==""){
-            alert("請填評論");
+          alert("請填評論");
           check=1;
         }
         for(i=1;i<7;i++){
-          else if(!question[i]){
+          if(!question[i]){
             alert("請確定每一題都有填寫喔!");
             check=1;
             break;
